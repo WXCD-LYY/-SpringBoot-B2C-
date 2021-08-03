@@ -97,6 +97,7 @@ public class FastDFSUtil {
 
     }
 
+
     /**
      * 文件下载
      * @param groupName: 文件组名
@@ -166,6 +167,11 @@ public class FastDFSUtil {
     }
 
 
+    /**
+     * 获取Tracker信息
+     * @return
+     * @throws Exception
+     */
     public static String getTrackerInfo() throws Exception{
         // 创建一个TrackerClient对象，通过TrackerClient对象访问TrackerServer
         TrackerClient trackerClient = new TrackerClient();

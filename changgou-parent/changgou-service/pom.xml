@@ -19,6 +19,11 @@
         <module>changgou-service-file</module>
         <module>changgou-service-canal</module>
         <module>changgou-service-search</module>
+        <module>changgou-service-user</module>
+        <module>changgou-service-order</module>
+        <module>changgou-service-content</module>
+
+
     </modules>
 
 
@@ -29,5 +34,8 @@
             <artifactId>changgou-common-db</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+
+
     </dependencies>
 </project>

@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @Author: LiYangyong
  * @Date: 2021/2/17/017 13:33
  **/
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class) // 排除掉数据库自动加载
 @EnableEurekaClient
 public class FileApplication {
     public static void main(String[] args) {

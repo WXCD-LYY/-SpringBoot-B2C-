@@ -17,7 +17,7 @@ import java.io.Serializable;
  *      size：
  *      附加信息：
  *      后缀：
- *      文件内容->为念的字节数组
+ *      文件内容->文件的字节数组
  */
 public class FastDFSFile implements Serializable {
 

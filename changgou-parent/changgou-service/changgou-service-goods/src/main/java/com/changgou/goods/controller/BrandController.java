@@ -28,8 +28,8 @@ public class BrandController {
      * 根据分类ID查询品牌集合
      */
     @GetMapping(value = "/category/{id}")
-    public Result<List<Brand>> findByCategory(@PathVariable(value = "id") Integer categoryid) {
-        List<Brand> brands = brandService.findByCategory(categoryid);
+    public Result<List<Brand>> findByCategory(@PathVariable(value = "id") Integer categoryId) {
+        List<Brand> brands = brandService.findByCategory(categoryId);
         return new Result<List<Brand>>(true, StatusCode.OK, "查询成功！", brands);
 
     }
@@ -93,7 +93,7 @@ public class BrandController {
      * @return
      */
     @PutMapping(value = "/{id}")
-    public Result update(@RequestBody Brand brand, @PathVariable Integer id) {
+    public Result update(@RequestBody Brand brand, @PathVariable(value = "id") Integer id) {
         //设置主键值
         brand.setId(id);
         //调用BrandService实现修改Brand
@@ -133,6 +133,6 @@ public class BrandController {
     public Result<List<Brand>> findAll() {
         //调用BrandService实现查询所有Brand
         List<Brand> list = brandService.findAll();
-        return new Result<List<Brand>>(true, StatusCode.OK, "查询成功", list);
+        return new Result<List<Brand>>(true, StatusCode.OK, "查询成功！", list);
     }
 }

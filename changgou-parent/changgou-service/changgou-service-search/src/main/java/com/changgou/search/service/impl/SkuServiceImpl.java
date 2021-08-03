@@ -67,7 +67,7 @@ public class SkuServiceImpl implements SkuService {
          */
         /*// 搜索封装条件
         // 执行SQL = select * from table ---> ResultSet
-        String sql = "select * from tb+sku where name like '%华为%'";
+        String sql = "select * from tb_sku where name like '%华为%'";
 
         // 预编译SQL语句，并执行SQL
         Connection conn = null;
@@ -173,7 +173,7 @@ public class SkuServiceImpl implements SkuService {
                 price = price.replace("元", "").replace("以上", "");
                 // 根据-分割   [0,500]........[3000]
                 String[] prices = price.split("-");
-                // x一ing不为空，y有可能为null
+                // x一定不为空，y有可能为null
                 if (prices != null && prices.length > 0) {
                     // price > prices[0]
                     boolQueryBuilder.must(QueryBuilders.rangeQuery("price").gt(Integer.parseInt(prices[0])));
@@ -343,6 +343,8 @@ public class SkuServiceImpl implements SkuService {
          * 2. 表示根据哪个域进行分组查询
          */
         nativeSearchQueryBuilder.addAggregation(AggregationBuilders.terms("skuCategory").field("categoryName"));
+
+        // AggregatedPage<SkuInfo> 搜索结果集的封装
         AggregatedPage<SkuInfo> aggregatedPage = elasticsearchTemplate.queryForPage(nativeSearchQueryBuilder.build(), SkuInfo.class);
 
         /**
@@ -482,5 +484,22 @@ public class SkuServiceImpl implements SkuService {
 
         // 调用Dao实现数据批量导入
         skuEsMapper.saveAll(skuInfoList);
+    }
+
+
+    /**
+     * 导入sku数据到es
+     */
+    @Override
+    public void importSku(){
+        //调用changgou-service-goods微服务
+        Result<List<Sku>> skuListResult = skuFeign.findByStatus("1");
+        //将数据转成search.Sku
+        List<SkuInfo> skuInfos=  JSON.parseArray(JSON.toJSONString(skuListResult.getData()),SkuInfo.class);
+        for(SkuInfo skuInfo:skuInfos){
+            Map<String, Object> specMap= JSON.parseObject(skuInfo.getSpec()) ;
+            skuInfo.setSpecMap(specMap);
+        }
+        skuEsMapper.saveAll(skuInfos);
     }
 }

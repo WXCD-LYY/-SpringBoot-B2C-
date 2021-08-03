@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @FeignClient(name = "search")
-@RequestMapping("/search")
+@RequestMapping(value = "/search")
 public interface SkuFeign {
 
     /**

@@ -500,7 +500,7 @@
 			</div>
 			<!--selector-->
 			<div class="clearfix selector">
-                <!--用户灭有选择分类搜索，则显示分类-->
+                <!--用户没有选择分类搜索，则显示分类-->
 				<div class="type-wrap" th:unless="${#maps.containsKey(searchMap, 'category')}">
 					<div class="fl key">分类</div>
 					<div class="fl value"></div>
@@ -637,7 +637,8 @@
 								</div>
 								<div class="attr">
                                     <!--utext: 会识别响应的标签-->
-									<a target="_blank" href="item.html"  title="" th:utext="${#strings.abbreviate(item.name, 140)}"></a>
+									<a target="_blank" href="item.html"  title="" th:text="${#strings.abbreviate(item.name, 140)}"></a>
+                                   <!-- <a target="_blank" href="item.html"  title="" th:text="${item.name}"></a>-->
 								</div>
 								<div class="commit">
 									<i class="command">已有<span>2000</span>人评价</i>
@@ -761,48 +762,48 @@
 <div class="clearfix footer">
 	<div class="py-container">
 		<div class="footlink">
-			<div class="Mod-service">
+			<div class="Mod-com.changgou.content.service">
 				<ul class="Mod-Service-list">
-					<li class="grid-service-item intro  intro1">
+					<li class="grid-com.changgou.content.service-item intro  intro1">
 
 						<i class="serivce-item fl"></i>
-						<div class="service-text">
+						<div class="com.changgou.content.service-text">
 							<h4>正品保障</h4>
 							<p>正品保障，提供发票</p>
 						</div>
 
 					</li>
-					<li class="grid-service-item  intro intro2">
+					<li class="grid-com.changgou.content.service-item  intro intro2">
 
 						<i class="serivce-item fl"></i>
-						<div class="service-text">
+						<div class="com.changgou.content.service-text">
 							<h4>正品保障</h4>
 							<p>正品保障，提供发票</p>
 						</div>
 
 					</li>
-					<li class="grid-service-item intro  intro3">
+					<li class="grid-com.changgou.content.service-item intro  intro3">
 
 						<i class="serivce-item fl"></i>
-						<div class="service-text">
+						<div class="com.changgou.content.service-text">
 							<h4>正品保障</h4>
 							<p>正品保障，提供发票</p>
 						</div>
 
 					</li>
-					<li class="grid-service-item  intro intro4">
+					<li class="grid-com.changgou.content.service-item  intro intro4">
 
 						<i class="serivce-item fl"></i>
-						<div class="service-text">
+						<div class="com.changgou.content.service-text">
 							<h4>正品保障</h4>
 							<p>正品保障，提供发票</p>
 						</div>
 
 					</li>
-					<li class="grid-service-item intro intro5">
+					<li class="grid-com.changgou.content.service-item intro intro5">
 
 						<i class="serivce-item fl"></i>
-						<div class="service-text">
+						<div class="com.changgou.content.service-text">
 							<h4>正品保障</h4>
 							<p>正品保障，提供发票</p>
 						</div>

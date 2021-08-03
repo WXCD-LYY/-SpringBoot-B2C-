@@ -32,7 +32,7 @@ public class FileUploadController {
                 StringUtils.getFilenameExtension(file.getOriginalFilename()) // 获取文件扩展名
         );
 
-        // 调用FastDFS工具类将文件传入FastDFS中
+        // 调用FastDFSUtil工具类将文件传入FastDFS中
         String[] uploads = FastDFSUtil.upload(fastDFSFile);
 
         // 拼接访问地址 url = http://192.168.211.132:8080/wKjThF0DBzaAP23MAAXz2mMp9oM26.jpeg

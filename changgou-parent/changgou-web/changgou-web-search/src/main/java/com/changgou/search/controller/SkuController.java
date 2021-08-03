@@ -32,7 +32,7 @@ public class SkuController {
      */
     @GetMapping(value = "/list")
     public String search(@RequestParam(required = false) Map<String, String> searchMap, Model model) throws Exception{
-        //调用changgou-service-search微服务
+        //调用changgou-com.changgou.content.service-search微服务
         Map<String, Object> resultMap = skuFeign.search(searchMap);
         model.addAttribute("result", resultMap);
 
@@ -40,12 +40,12 @@ public class SkuController {
         // 计算分页
         Page<SkuInfo> skuInfo = new Page<SkuInfo>(
                 Long.parseLong(resultMap.get("total").toString()),
-                Integer.parseInt(resultMap.get("pageNumber").toString()) + 1,
+                Integer.parseInt(resultMap.get("pageNumber").toString()), // 需要+1  但是SkuServiceImpl有问题
                 Integer.parseInt(resultMap.get("pageSize").toString()));
 
         model.addAttribute("pageInfo", skuInfo);
 
-        // 讲条件存储用于页面会先数据
+        // 讲条件存储用于页面回显数据
         model.addAttribute("searchMap", searchMap);
 
 

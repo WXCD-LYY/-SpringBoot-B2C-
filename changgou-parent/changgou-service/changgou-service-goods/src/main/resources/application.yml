@@ -17,8 +17,10 @@ eureka:
 feign:
   hystrix:
     enabled: true
-#mybatis:
-#  configuration:
-#    map-underscore-to-camel-case: true
-#  mapper-locations: classpath:mapper/*Mapper.xml
-#  type-aliases-package: com.changgou.goods.pojo
+
+#mybatis的配置 可以不配置  需要整合通用mapper
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.changgou.goods.pojo

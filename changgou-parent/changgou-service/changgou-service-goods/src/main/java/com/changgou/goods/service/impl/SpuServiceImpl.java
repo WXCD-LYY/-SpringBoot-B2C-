@@ -173,7 +173,8 @@ public class SpuServiceImpl implements SpuService {
         Category category = categoryMapper.selectByPrimaryKey(spu.getCategory3Id());
 
         // 品牌信息
-        Brand brand = brandMapper.selectByPrimaryKey(spu.getBrandId());
+        Brand brand = brandMapper.selectByPrimaryKey(8551);
+        System.out.println(brand);
 
         List<Sku> skuList = goods.getSkuList();
         for (Sku sku : skuList) {

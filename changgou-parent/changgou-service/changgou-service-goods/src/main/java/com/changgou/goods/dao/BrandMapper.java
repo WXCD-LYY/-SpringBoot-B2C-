@@ -14,9 +14,9 @@ public interface BrandMapper extends Mapper<Brand> {
 
     /**
      *根据分类ID查询品牌集合
-     * @param categoryid
+     * @param categoryId
      * @return
      */
     @Select(value="select tb.* from tb_brand tb ,tb_category_brand tbc where tb.id = tbc.brand_id and tbc.category_id=#{categoryid}")
-    List<Brand> findByCategory(Integer categoryid);
+    List<Brand> findByCategory(Integer categoryId);
 }

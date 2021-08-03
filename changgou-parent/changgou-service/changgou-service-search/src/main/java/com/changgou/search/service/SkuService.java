@@ -23,4 +23,10 @@ public interface SkuService {
      */
 
     void importData();
+
+
+    /***
+     * 导入SKU数据
+     */
+    void importSku();
 }

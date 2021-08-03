@@ -39,4 +39,15 @@ public class SkuController {
         skuService.importData();
         return new Result(true, StatusCode.OK, "执行操作成功！");
     }
+
+
+    /**
+     * 导入数据
+     * @return
+     */
+    @GetMapping("/importT")
+    public Result search(){
+        skuService.importSku();
+        return new Result(true, StatusCode.OK,"导入数据到索引库中成功！");
+    }
 }
